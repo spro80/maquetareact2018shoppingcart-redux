@@ -2,171 +2,86 @@ import React, { Component } from 'react';
 
 import { Route } from 'react-router-dom'
 
+import { incrementar, decrementar, setear } from './reducers'
+
 //Components
-import { HorizontalMenu, Info, Header, Login, Products, Promotions, Contact, MyOrders, ShoopingCartProducts, Footer, Information, InformationWelcome } from './components'
-
-
-import { Grid, Row, Col } from 'react-bootstrap';
 //import { Button } from 'react-bootstrap';
+//import { Grid, Row, Col } from 'react-bootstrap';
+import { HorizontalMenu, Info, Header, Login, Products, Promotions, Contact, MyOrders, ShoopingCartProducts, Footer } from './components'
 
+
+import { connect } from 'react-redux'
+
+import { BrowserRouter as Router } from 'react-router-dom';
 
 //Styles
 import './App.css';
 import './styles.css'
 
-
-//import logo from './logo.svg';
-//Responsive
-//import { Grid, Row, Col } from 'react-flexbox-grid';
-//import 'bootstrap/dist/css/bootstrap.css';
-//import 'bootstrap/dist/css/bootstrap-theme.css';
-
-
-
 class App extends Component {
+	
 	render() {
+
+		console.log( "render INIT." )
+		console.log( this.props )
+		console.log( "render END." )
+
+		//Recupera las variables desde props.
+		const { incrementar, decrementar, setear } = this.props
+
 		return (
     
 			<div className="App">
 
+			<button onClick={ incrementar }> INCREMENTAR  </button>
+			<button onClick={ decrementar }> DECREMENTAR  </button>	
+
+			
 			<Route path="/" component={HorizontalMenu} />
 			<Route path="/" component={Info} />
 			<Route path="/" component={Header} />
-			<Route exact path="/login" component={Login} />
+			<Route exact path="/login" component={Login} />			
 						
 			<Route exact path="/productos" component={Products} />
 			<Route exact path="/promociones" component={Promotions} />
 			<Route exact path="/contacto" component={Contact} />
 			<Route exact path="/mispedidos" component={MyOrders} />
-			<Route exact path="/vercarrito" component={ShoopingCartProducts} />
-			
-			
-			<Route path="/" component={Footer} />
 
+			<Route path="/vercarrito" render={()=><ShoopingCartProducts num="2" someProp={100}/>}/>
+
+			<Route path="/" component={Footer} />
+			
 			</div>
       
 		);
 	}
 }
+//<Route exact path="/vercarrito" render={(props) => <ShoopingCartProducts globalStore={globalStore} {...props} /> } />			
+//<Route exact path="/details/:id" render={(props) => <DetailsPage globalStore={globalStore} {...props} /> } />
+//<Route exact path="/vercarrito" component={ShoopingCartProducts} datosPorProps={number} />
+//render={(props) => <TestWidget {...props} someProp={100} />} />
+//<Route path="/abc" render={(props) => <TestWidget {...props} someProp={100} />} />
 
-export default App;
-
-
-
-
-
-/*
-class Header extends Component {
-
-	render() {
-		return (
-		
-			<header className="headerContainer">
-				<h1 className="headerContainer_h1"> HEADER! </h1>
-				<img src={logo} className="App-logo" alt="logo" />
-			</header>
-		);
+const mapStateToProps = state => {
+	console.log( "****mapStateToProps INI IMPRIME EL VALOR DEL STATE: " )
+	console.log( state )
+	console.log( "****mapStateToProps  FIN IMPRIME EL VALOR DEL STATE:" )
+	return {
+		valor: state,
 	}
 }
-*/
 
-/*
-class HorizontalMenu extends Component {
 
-	render() {
-	
-		return (
-		
-			<Row >
+const mapDispatchToProps = dispatch => ({
 
-			  <Col xs={12} sm={3} md={2} lg={1}>
-					
-					
-						<h1> !!!!!!!!!!!!!!!!Menu!!!!!!!!!!!!!!!!!!!! </h1> 
-				
-			
-			  </Col>
+	incrementar: () => dispatch( incrementar() ),
+	//incrementar: payload => dispatch( incrementar( payload ) ),
+	decrementar: () => dispatch( decrementar() ),
+	setear: payload => dispatch( setear( payload ) ),
 
-			</Row>			
-		
-		);
-	
-	}
+})
 
-}*/
 
-/*
-class Contenido extends Component {
-
-	render() {
-	
-		return (
-		
-		
-			<Row >
-
-			  <Col xs={12} sm={3} md={2} lg={1}>
-					
-				<div className="contenidoContainer_p">
-					<h1> Contenido del Sistema! </h1> 
-				</div>
-			
-			  </Col>
-
-			</Row>
-			
-		
-		);
-	
-	}
-
-}
-*/
-
-/*
-class Footer extends Component {
-
-	render() {
-	
-		return (
-		
-		
-			<Row >
-
-			  <Col xs={12} sm={3} md={2} lg={1}>
-					
-				<div className="footerContainer"> 
-					
-					Todos Los Derechos Reservados!!!
-					
-				</div>
-			
-			  </Col>
-
-			</Row>
-			
-		
-		)
-	
-	}
-
-}
-*/
-
-/*				<HorizontalMenu>
-				</HorizontalMenu>
-				
-				<Header>
-				</Header>
-
-				<Contenido>
-				</Contenido>
-
-				<Footer>
-				</Footer>
-
-							<Route path="/" component={HorizontalMenu} />
-			<Route path="/" component={Header} />
-			<Route path="/" component={Contenido} />
-			<Route path="/" component={Footer} />
-*/
+export default connect( 
+	mapStateToProps, 
+	mapDispatchToProps )( App )
