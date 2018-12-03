@@ -1,12 +1,13 @@
 import React from 'react'
-import logo from './../logo.svg';
+//import logo from './../logo.svg';
 
 import { Link } from 'react-router-dom'
 
 
 //Responsive
 //import { Grid, Row, Col } from 'react-flexbox-grid';
-import { Grid, Row, Col } from 'react-bootstrap';
+//import { Grid, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 /*
 								<div class="collapse navbar-collapse" id="navbarResponsive">
@@ -72,6 +73,9 @@ export default class HorizontalMenu extends React.Component{
 										</li>
 										<li class="nav-item">
 											<Link to="/mispedidos">Mis Pedidos</Link>
+										</li>
+										<li class="nav-item">
+											<Link to="/vercarrito">Ver Carrito</Link>
 										</li>
 
 									</ul>

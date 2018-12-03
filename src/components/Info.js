@@ -1,12 +1,11 @@
 import React from 'react'
-import logo from './../logo.svg';
-
 import { Link } from 'react-router-dom'
-
+//import logo from './../logo.svg';
 
 //Responsive
 //import { Grid, Row, Col } from 'react-flexbox-grid';
-import { Grid, Row, Col } from 'react-bootstrap';
+//import { Grid, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 /*
 								<div class="collapse navbar-collapse" id="navbarResponsive">
@@ -41,7 +40,10 @@ import { Grid, Row, Col } from 'react-bootstrap';
 export default class Info extends React.Component{
 
 	render(){
-	
+		
+		console.log( "aaa" );
+		console.log( this.props );
+		console.log( "bbb" );
 		return(
 
 			<Row>
@@ -50,7 +52,7 @@ export default class Info extends React.Component{
 					<div>
 						<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 							<div class="container">
-								<a class="navbar-brand" href="#">(0) Productos! </a>
+								<a class="navbar-brand" href="#">(000) {this.props.number} Productos! </a>
 
 								<Link to="/vercarrito">Ver Carrito</Link>
 

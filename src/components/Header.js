@@ -1,8 +1,9 @@
 import React from 'react'
-import logo from './../logo.svg';
+//import logo from './../logo.svg';
 
 //Responsive
-import { Grid, Row, Col } from 'react-bootstrap';
+//import { Grid, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 
 export default class Header extends React.Component{

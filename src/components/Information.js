@@ -1,12 +1,13 @@
 import React from 'react'
-import logo from './../logo.svg';
+//import logo from './../logo.svg';
 
 import InformationWelcome from './InformationWelcome'
 import InformationLogin from './InformationLogin'
 
 //Responsive
 //import { Grid, Row, Col } from 'react-flexbox-grid';
-import { Grid, Row, Col } from 'react-bootstrap';
+//import { Grid, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 
 
