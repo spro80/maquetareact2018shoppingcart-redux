@@ -51,7 +51,7 @@ export default class HorizontalMenu extends React.Component{
 					<div>
 						<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 							<div class="container">
-								<a class="navbar-brand" href="#">www.todobelleza.cl</a>
+								<a class="navbar-brand" href="#">www.prueba.cl</a>
 								
 								<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 								  <span class="navbar-toggler-icon"></span>
