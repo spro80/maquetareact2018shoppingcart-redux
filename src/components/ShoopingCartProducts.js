@@ -14,6 +14,7 @@ export default class ShoopingCartProducts extends React.Component{
 	render(){
 
 		console.log("INIT EN ShoopingCartProducts Component...")
+		console.log( this.props )
 	
 		return(
 

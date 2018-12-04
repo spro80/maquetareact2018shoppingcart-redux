@@ -32,6 +32,7 @@ const initialState = {
     data: 0,
   }
 */
+
 export default function (state = initialState, action) {
     
     console.log( "---reducer.js INICIANDO EN FUNCION REDUCER---" )
@@ -55,7 +56,7 @@ export default function (state = initialState, action) {
                 console.log("reducer.js NO SE PUEDE DECREMENTAR MAS, YA LLEGO A SU NIVEL MINIMO.")
                 return state
             }
-            
+
             return state - 1
 
         case SETEAR:
