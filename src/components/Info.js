@@ -34,16 +34,28 @@ import { Row, Col } from 'react-bootstrap';
 
 									</ul>
 								</div>
-
 */ 
 
 export default class Info extends React.Component{
 
+	setLabelProduct = valorStock => {
+
+		let labelProduct = "";
+		if ( this.props.valorStock == 0 )	labelProduct = "Producto"
+		else if ( this.props.valorStock > 0 )	labelProduct = "Productos"
+
+		return labelProduct;
+
+	}
+	
 	render(){
 		
-		console.log( "aaa" );
+		console.log( "INIT en Componente INFO" );
 		console.log( this.props );
-		console.log( "bbb" );
+		console.log( this.props.valorStock );
+		console.log( "Exit en Componente INFO" );
+
+		
 		return(
 
 			<Row>
@@ -52,8 +64,9 @@ export default class Info extends React.Component{
 					<div>
 						<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 							<div class="container">
-								<a class="navbar-brand" href="#">(000) {this.props.number} Productos! </a>
-
+								
+								<a class="navbar-brand" href="#"> {this.props.valorStock} { this.setLabelProduct( this.props.valorStock ) } </a>
+								
 								<Link to="/vercarrito">Ver Carrito</Link>
 
 							</div>
@@ -67,7 +80,6 @@ export default class Info extends React.Component{
 	}
 	
 }
-
 
 /*
 <ul class="sidenav">
