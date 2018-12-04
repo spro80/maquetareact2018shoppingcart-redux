@@ -18,7 +18,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import './styles.css'
 
-//<Route path="/vercarrito" render={()=><ShoopingCartProducts num="2" someProp={100}/>}/>
+
 class App extends Component {
 	
 	render() {
@@ -28,7 +28,7 @@ class App extends Component {
 		console.log( "render END." )
 
 		//Recupera las variables desde props.
-		const { incrementar, decrementar, setear } = this.props
+		const { incrementar, decrementar, setear, valorStock } = this.props
 
 		return (
     
@@ -38,19 +38,22 @@ class App extends Component {
 			<button onClick={ decrementar }> DECREMENTAR  </button>	
 			
 			<Route path="/" component={HorizontalMenu} />
-			<Route path="/" component={Info} />
+
+			<Route path="/" render={(props) => <Info {...props} isAuthed={true} valorStock={valorStock} />} />
+
 			<Route path="/" component={Header} />
+			
 			<Route exact path="/login" component={Login} />			
 						
 			<Route exact path="/productos" component={Products} />
+			
 			<Route exact path="/promociones" component={Promotions} />
+			
 			<Route exact path="/contacto" component={Contact} />
+			
 			<Route exact path="/mispedidos" component={MyOrders} />
 
-
-			<Route path="/vercarrito"  render={(props) => <ShoopingCartProducts {...props} isAuthed={true} />}     />
-
-
+			<Route path="/vercarrito" component={ShoopingCartProducts}  />
 
 			<Route path="/" component={Footer} />
 			
@@ -59,6 +62,7 @@ class App extends Component {
 		);
 	}
 }
+//<Route path="/vercarrito" render={()=><ShoopingCartProducts num="2" someProp={100}/>}/>
 //<Route exact path="/vercarrito" render={(props) => <ShoopingCartProducts globalStore={globalStore} {...props} /> } />			
 //<Route exact path="/details/:id" render={(props) => <DetailsPage globalStore={globalStore} {...props} /> } />
 //<Route exact path="/vercarrito" component={ShoopingCartProducts} datosPorProps={number} />
@@ -70,7 +74,7 @@ const mapStateToProps = state => {
 	console.log( state )
 	console.log( "****mapStateToProps  FIN IMPRIME EL VALOR DEL STATE:" )
 	return {
-		valor: state,
+		valorStock: state,
 	}
 }
 
