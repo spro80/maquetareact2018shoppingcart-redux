@@ -18,6 +18,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import './styles.css'
 
+//<Route path="/vercarrito" render={()=><ShoopingCartProducts num="2" someProp={100}/>}/>
 class App extends Component {
 	
 	render() {
@@ -35,7 +36,6 @@ class App extends Component {
 
 			<button onClick={ incrementar }> INCREMENTAR  </button>
 			<button onClick={ decrementar }> DECREMENTAR  </button>	
-
 			
 			<Route path="/" component={HorizontalMenu} />
 			<Route path="/" component={Info} />
@@ -47,7 +47,10 @@ class App extends Component {
 			<Route exact path="/contacto" component={Contact} />
 			<Route exact path="/mispedidos" component={MyOrders} />
 
-			<Route path="/vercarrito" render={()=><ShoopingCartProducts num="2" someProp={100}/>}/>
+
+			<Route path="/vercarrito"  render={(props) => <ShoopingCartProducts {...props} isAuthed={true} />}     />
+
+
 
 			<Route path="/" component={Footer} />
 			
