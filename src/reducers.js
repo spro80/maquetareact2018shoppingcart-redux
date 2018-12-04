@@ -44,12 +44,8 @@ export default function (state = initialState, action) {
             console.log( state )
             console.log("reducer.js FIN EN SWITCH INCREMENTAR...")
 
-            //const x = { ...state }
-            //return state + 1
-            //return x + 1
+            return state + 1
 
-            return [ ...state, state + 1 ]
-            
 
         case DECREMENTAR:
             console.log("reducer.js INI EN SWITCH DECREMENTAR...")
@@ -59,11 +55,8 @@ export default function (state = initialState, action) {
                 console.log("reducer.js NO SE PUEDE DECREMENTAR MAS, YA LLEGO A SU NIVEL MINIMO.")
                 return state
             }
-
-            const y = { ...state }
-
-            //return state - 1
-            return y - 1
+            
+            return state - 1
 
         case SETEAR:
             console.log("reducer.js INI EN SWITCH SETEAR...")
