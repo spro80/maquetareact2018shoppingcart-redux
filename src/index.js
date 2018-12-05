@@ -34,9 +34,9 @@ ReactDOM.render(
 
     //Agregar react-router el Provider
     <Provider store={store}>    
-    <Router>
+    
         <App />
-    </Router>
+    
     </Provider>
     , document.getElementById('root'));
 registerServiceWorker();
