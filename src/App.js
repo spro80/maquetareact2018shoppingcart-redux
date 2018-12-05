@@ -2,19 +2,35 @@ import React, { Component } from 'react';
 
 import { Route } from 'react-router-dom'
 
-import { incrementar, decrementar, setear } from './reducers'
+import { connect } from 'react-redux'
 
-//Components
+//Se necesita para trabajar con las rutas
+import { BrowserRouter as Router } from 'react-router-dom';
+
+//se agrega para trabajar con Ducks
+import { bindActionCreators } from 'redux'
+
+
+
+//Import Components
 //import { Button } from 'react-bootstrap';
 //import { Grid, Row, Col } from 'react-bootstrap';
 import { HorizontalMenu, Info, Header, Login, Products, Promotions, Contact, MyOrders, ShoopingCartProducts, Footer } from './components'
 
 
-import { connect } from 'react-redux'
+//import { incrementar, decrementar, setear } from './reducers'
+//Import Ducks
+import * as InformationShoopingCartActions from './ducks/InformationShoopingCart'
 
-import { BrowserRouter as Router } from 'react-router-dom';
 
-//Styles
+
+
+
+
+
+
+
+//Import Styles css
 import './App.css';
 import './styles.css'
 
@@ -28,7 +44,7 @@ class App extends Component {
 		console.log( "render END." )
 
 		//Recupera las variables desde props.
-		const { incrementar, decrementar, setear, valorStock } = this.props
+		const { incrementar, decrementar, setear, valorTotalStock } = this.props
 
 		return (
     
@@ -39,7 +55,7 @@ class App extends Component {
 			
 			<Route path="/" component={HorizontalMenu} />
 
-			<Route path="/" render={(props) => <Info {...props} isAuthed={true} valorStock={valorStock} />} />
+			<Route path="/" render={(props) => <Info {...props} isAuthed={true} valorTotalStock={valorTotalStock} />} />
 
 			<Route path="/" component={Header} />
 			
@@ -74,19 +90,23 @@ const mapStateToProps = state => {
 	console.log( state )
 	console.log( "****mapStateToProps  FIN IMPRIME EL VALOR DEL STATE:" )
 	return {
-		valorStock: state,
+		valorTotalStock: state,
 	}
 }
 
 
+/*
 const mapDispatchToProps = dispatch => ({
-
 	incrementar: () => dispatch( incrementar() ),
 	//incrementar: payload => dispatch( incrementar( payload ) ),
 	decrementar: () => dispatch( decrementar() ),
 	setear: payload => dispatch( setear( payload ) ),
-
 })
+*/
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+	...InformationShoopingCartActions,
+  }, dispatch)
 
 
 export default connect( 
