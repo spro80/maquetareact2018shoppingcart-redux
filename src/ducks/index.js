@@ -1,5 +1,7 @@
-import InfoShoopingCart from './InfoShoopingCart'
+import InformationShoopingCart from './InformationShoopingCart'
+import Login from './Login'
 
 export default {
-  InfoShoopingCart,
+  InformationShoopingCart,
+  Login
 }
