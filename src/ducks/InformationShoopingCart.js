@@ -1,5 +1,6 @@
 const INCREMENTAR = 'CONTADOR/INCREMENTAR'
 const DECREMENTAR = 'CONTADOR/DECREMENTAR'
+const SETEARACERO = 'CONTADOR/SETEARACERO'
 const SETEAR      = 'CONTADOR/SETEAR'
 
 
@@ -10,6 +11,10 @@ export const incrementar = () => ({
 
 export const decrementar = () => ({
     type: DECREMENTAR,
+})
+
+export const setearacero = () => ({
+    type: SETEARACERO,
 })
 
 export  const setear = payload => ({
@@ -27,41 +32,56 @@ export const incrementar = payload => ({
 */
   
 const initialState = 0
-/*
-const initialState = {
-    data: 0,
-  }
-*/
+
+
+/*const initialState = {
+    dataCountAllProducts: 0,
+  }*/
+
 
 export default function (state = initialState, action) {
     
-    console.log( "---reducer.js INICIANDO EN FUNCION REDUCER---" )
+    console.log( "---[InformationShoopingCart.js] INICIANDO EN FUNCION REDUCER---" )
     console.log( action )
-    console.log( "---reducer.js SALIENDO DE FUNCION REDUCER---" )
+    console.log( "---[InformationShoopingCart.js] SALIENDO DE FUNCION REDUCER---" )
 
     switch (action.type) {
         case INCREMENTAR:
-            console.log("reducer.js INI EN SWITCH INCREMENTAR...")
-            console.log( state )
-            console.log("reducer.js FIN EN SWITCH INCREMENTAR...")
+            console.log("[InformationShoopingCart.js] -----> INI EN SWITCH INCREMENTAR...")
+            console.log( state );
+            console.log("[InformationShoopingCart.js] ----->  FIN EN SWITCH INCREMENTAR 1...")
+
+            console.log("[InformationShoopingCart.js] ----->  FIN EN SWITCH INCREMENTAR 2 ...")
 
             return state + 1
+            //return state.dataCountAllProducts + 1
 
 
         case DECREMENTAR:
-            console.log("reducer.js INI EN SWITCH DECREMENTAR...")
-            console.log("reducer.js FIN EN SWITCH DECREMENTAR...")
+            console.log("[InformationShoopingCart.js] INI EN SWITCH DECREMENTAR...")
+            console.log("[InformationShoopingCart.js] FIN EN SWITCH DECREMENTAR...")
 
             if( state == 0){
-                console.log("reducer.js NO SE PUEDE DECREMENTAR MAS, YA LLEGO A SU NIVEL MINIMO.")
+                console.log("InformationShoopingCart.js NO SE PUEDE DECREMENTAR MAS, YA LLEGO A SU NIVEL MINIMO.")
                 return state
             }
 
             return state - 1
 
+        
+        case SETEARACERO:
+            console.log("[InformationShoopingCart.js] -----> INI EN SWITCH SETEARACERO...")
+            console.log( state );
+            console.log("[InformationShoopingCart.js] ----->  FIN EN SWITCH SETEARACERO...")
+
+            console.log("[InformationShoopingCart.js] ----->  FIN EN SWITCH SETEARACERO ...")
+
+            return 0
+
+            
         case SETEAR:
-            console.log("reducer.js INI EN SWITCH SETEAR...")
-            console.log("reducer.js FIN EN SWITCH SETEAR...")        
+            console.log("InformationShoopingCart.js INI EN SWITCH SETEAR...")
+            console.log("InformationShoopingCart.js FIN EN SWITCH SETEAR...")        
             return action.payload
 
         default: 
