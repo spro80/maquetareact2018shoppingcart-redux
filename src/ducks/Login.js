@@ -2,11 +2,41 @@ const LOGININGRESAR = 'LOGIN/INGRESAR'
 const LOGINCERRARSESION = 'LOGIN/CERRAR_SESION'
 const LOGINSETEAR = 'LOGIN/SETEAR'
 
+/*
+export const addNews = (categoryId, { value }) => {
+  const payload = {
+    id: Math.random().toString(36),
+    text: value,
+    categoryId,
+  }
 
+  return {
+    type: ADD_NEWS,
+    payload,
+  }
+}
+*/
 //Action Creators
-export const loginingresar = () => ({
+/*export const loginingresar = ( ) => ({
     type: LOGININGRESAR,
-})
+
+})*/
+
+
+export const loginingresar = ( idTest ) => {
+
+    const payload = {
+        usuario: "David",
+        password: "808080"
+    }
+
+    return {
+        type: LOGININGRESAR,
+        payload: payload
+    }
+    
+
+}
 
 export const logincerrarsesion = () => ({
     type: LOGINCERRARSESION,
@@ -49,6 +79,16 @@ export default function (state = initialState, action) {
             console.log("[login.js] INI EN SWITCH LOGININGRESAR state:")
             console.log( state )
             console.log("[login.js] FIN EN SWITCH LOGININGRESAR state:")
+
+            console.log("//////////////////////////////////action.payload.usuario:   ")
+            console.log( action.payload.usuario )
+
+            console.log("//////////////////////////////////action.payload.password:   ")
+            console.log( action.payload.password )
+
+            console.log("//////////////////////////////////////////////////////////////")
+
+
             /*
             if( state.data.loginStatus == false ){
                 state.data.loginStatus = true
