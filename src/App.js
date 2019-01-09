@@ -50,9 +50,7 @@ class App extends Component {
 			<button onClick={ incrementar }> INCREMENTAR  </button>
 			<button onClick={ decrementar }> DECREMENTAR  </button>	
 			<button onClick={ setearacero }> SETEAR A CERO  </button>	
-			<button onClick={ loginingresar }> LOGIN  </button>	
-			<button onClick={ logincerrarsesion }> CERRAR SESION  </button>	
-
+			<button onClick={ logincerrarsesion }> CERRAR SESION  </button>
 			
 			<Router history={history}>
 				<div>
